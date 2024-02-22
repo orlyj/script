@@ -1,18 +1,17 @@
-from github import Github
+import requests
 
-# GitHub credentials
-github_username = 'orlyj'
-github_password = 'ewan'
+# MetaMask wallet address to check contributions for
+metamask_address = 'YourMetaMaskAddress'
 
-# Repository information
-repo_name = 'new-repository'
-repo_description = 'This is a new repository created using PyGithub'
+# Gitcoin API endpoint to get user contributions based on MetaMask address
+gitcoin_api_url = f'https://gitcoin.co/api/v0.1/user/{metamask_address}/contributions'
 
-# Create a GitHub instance
-g = Github(github_username, github_password)
+# Send a GET request to the Gitcoin API
+response = requests.get(gitcoin_api_url)
 
-# Create a new repository
-user = g.get_user()
-repo = user.create_repo(repo_name, description=repo_description)
-
-print(f"Repository '{repo_name}' created successfully.")
+if response.status_code == 200:
+    data = response.json()
+    total_contributions = data['total']
+    print(f"Total contributions on Gitcoin for MetaMask address {metamask_address}: {total_contributions}")
+else:
+    print(f"Failed to retrieve contributions. Status code: {response.status_code}")
