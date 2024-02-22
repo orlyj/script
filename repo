@@ -1,8 +1,8 @@
 from github import Github
 
 # GitHub credentials
-github_username = 'YourGitHubUsername'
-github_password = 'YourGitHubPassword'
+github_username = 'orlyj'
+github_password = '0x3c2a33Bf59F352b54292F3927F3B376e0D99d351'
 
 # Repository information
 repo_name = 'new-repository'
