@@ -1,7 +1,7 @@
 import requests
 
 # MetaMask wallet address to check contributions for
-metamask_address = 'YourMetaMaskAddress'
+metamask_address = '0x3c2a33Bf59F352b54292F3927F3B376e0D99d351'
 
 # Gitcoin API endpoint to get user contributions based on MetaMask address
 gitcoin_api_url = f'https://gitcoin.co/api/v0.1/user/{metamask_address}/contributions'
